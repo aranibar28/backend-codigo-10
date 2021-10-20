@@ -1,33 +1,48 @@
-# Fundamentos Python
+# Python
 
-### Sesión 1
+### 🖥️ Session 1 
 - Operadores
 - Condicionales
 - Bucles
-
-### Sesión 2
+----------------------------
+### 🖥️ Session 2
 - Estructuras de control
 - Colecciones
-- Listas, tuplas, diccionarios
 - Funciones
+----------------------------
+### 🖥️ Session 3
+> Instalar y activar entorno virtual : 
 
-### Sesión 3
+    python -m venv env1
+    cd sesion3/web/env1
+    . Scripts/activate
 
-``` 
-python -m venv env1
-pip install Pillow 
-```
+> Instalar libreria Pillow para manipular imágenes : 
 
-### Sesión 4
-- POO
+    pip install Pillow 
 
-### Sesión 5
--Encampsulamiento
+----------------------------
+
+### 🖥️ Session 4
+- Programación Orientada a Objetos (POO)
+
+----------------------------
+
+### 🖥️ Session 5
+- Encampsulamiento
 - Métodos mágicos
 
-### Sesión 6
-``` 
-python -m venv env2
-pip install Flask
-flask run
-``` 
+----------------------------
+### 🖥️ Session 6
+> Instalar y activar entorno virtual : 
+
+    python -m venv env2
+    cd sesion6/web/env2
+    . Scripts/activate
+
+>  Instalar Flask :
+
+    pip install Flask
+    flask run
+
+----------------------------
