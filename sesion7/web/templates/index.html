@@ -1,0 +1,16 @@
+{% extends "masterpage.html" %} 
+
+{% block content %}
+  <h1>Hello World</h1>
+  <ul>
+    {% for i in tasks %}
+    <li>{{i}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+{% block footer %}
+  <center>
+    <small>Acme Inc Copyright</small>
+  </center>
+{% endblock %}

@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -14,9 +15,17 @@ def hello_world():
     msg = msg + "</ul>"
     return msg
 
+@app.route('/home')
+def home():
+    return render_template('index.html', tasks = tasks)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html', tasks = tasks)
+
 @app.route('/tasks', methods=['POST'])
 def new_task():
     content = request.json
-    print(content)
-    return content
+    tasks.append(content['title'])
+    return "Agregado"
     
