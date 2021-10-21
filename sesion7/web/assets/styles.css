@@ -1,0 +1,14 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
+
+li {
+  padding: 5px;
+  margin: 5px;
+  background-color: khaki;
+  list-style: none;
+}

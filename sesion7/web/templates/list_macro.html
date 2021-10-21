@@ -1,0 +1,9 @@
+{% macro lista(coleccion) %}
+
+    <ul>
+    {% for i in coleccion %}
+    <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+
+{% endmacro %}
