@@ -33,7 +33,7 @@
 - Métodos mágicos
 
 ----------------------------
-### 🖥️ Session 6
+### 🖥️ Session 6 y 7
 > Instalar y activar entorno virtual : 
 
     python -m venv env2
@@ -43,6 +43,23 @@
 >  Instalar Flask :
 
     pip install Flask
-    flask run
 
 ----------------------------
+### 🖥️ Session 8
+- Flask Bostrap
+- Flask con Colecciones
+- Flask con Librerias
+
+> Instalar y activar entorno virtual : 
+
+    python -m venv env4
+    cd sesion8/web/env4
+    . Scripts/activate
+
+>  Instalar Flask :
+
+    pip install Flask
+
+>  Instalar Flask Bootstrap
+
+    pip install flask-bootstrap

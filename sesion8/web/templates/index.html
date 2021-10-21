@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1>Task List</h1>
+    <form method="POST" action="/tasks">
+        <div class="mb-3">
+            <label for="taskname" class="form-label">Task Name</label>
+            <input class="form-control" id="taskname" name="taskname">
+          </div>
+          <br/>
+          <button type="submit" class="btn btn-primary"> Agregar </button>
+    </form>
+</div>
+
+{% endblock %}
