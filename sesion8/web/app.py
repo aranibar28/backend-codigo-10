@@ -4,25 +4,29 @@ from flask import request
 
 from flask_bootstrap import Bootstrap
 
-from .controllers.task_controller import TaskController
+from web.controllers.task_controller import TaskController
 
 app = Flask(__name__)
 
 Bootstrap(app)
 
 @app.route('/')
-def hello_world():
+def index():
     tasks = TaskController.tasks
-    return render_template("index.html", tasks=tasks)
+    return render_template("index.html", tasks = tasks)
+
+@app.route('/deletetask/<id>')
+def delete_task(id):
+    return TaskController.delete(id)
 
 @app.route('/tasks', methods = ['POST', 'GET'])
 def list_or_create():
     if request.method == 'GET':
-        TaskController.list()
-    else: 
-        TaskController.create(request)
+        return TaskController.list()
+    else:
+        return TaskController.create(request)
 
-@app.route('/task/<id>', methods = ['PUT', 'GET', 'DELETE'])
+@app.route('/task/<id>', methods = ['GET', 'PUT', 'DELETE'])
 def get_update_or_delete(id):
     if request.method == 'PUT':
         return TaskController.update(id, request)

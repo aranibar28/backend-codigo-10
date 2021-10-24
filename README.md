@@ -33,7 +33,7 @@
 - Métodos mágicos
 
 ----------------------------
-### 🖥️ Session 6 y 7
+### 🖥️ Session 6
 > Instalar y activar entorno virtual : 
 
     python -m venv env2
@@ -45,8 +45,28 @@
     pip install Flask
 
 ----------------------------
+### 🖥️ Session 7
+- Render Templates
+- Jinja 3.0.x
+
+> Instalar y activar entorno virtual : 
+
+    python -m venv env3
+    cd sesion6/web/env3
+    . Scripts/activate
+
+>  Instalar Flask :
+
+    pip install Flask
+
+>  Instalar Pillow :
+
+    pip install Pillow 
+
+----------------------------
+
 ### 🖥️ Session 8
-- Flask Bostrap
+- Flask Bootstrap
 - Flask con Colecciones
 - Flask con Librerias
 

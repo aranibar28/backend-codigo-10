@@ -1,17 +1,80 @@
-{% extends "bootstrap/base.html" %}
+{% extends "bootstrap/base.html" %} 
 
 {% block content %}
+    <div class="container-fluid">
+        <h1>Lista de Tareas</h1>
+        <form method="POST" action="/tasks">
+            <div class="mb-3">
+                <label for="taskname" class="form-label">Nombre de Tarea</label>
+                <input class="form-control" id="taskname" name="taskname" placeholder="Ingrese una tarea" required>
+              </div>
+              <br/>
+              <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+        <br/>
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <input onchange="itemTextChanged('{{task.id}}', this)" value="{{ task.title }}" /> {{ task.status }}
+                    <span class="updatebutton badge btn-sm btn-success" data-id="{{ task.id }}">✓</span>
+                    <span class="deletebutton badge btn-sm btn-danger" data-id="{{ task.id }}">x</span>
+                    <a href="/deletetask/{{ task.id }}" class="badge btn-sm btn-danger">-</a>    
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+        function addClickListener(e){
+            e.addEventListener("click", function(){
+                fetch('/task/' + e.dataset.id, {
+                    method: 'DELETE'
+                })
+                .then(res => {
+                    location.reload()
+                })
+                .catch(err => console.log(err));
+            })
+        }
 
-<div class="container-fluid">
-    <h1>Task List</h1>
-    <form method="POST" action="/tasks">
-        <div class="mb-3">
-            <label for="taskname" class="form-label">Task Name</label>
-            <input class="form-control" id="taskname" name="taskname">
-          </div>
-          <br/>
-          <button type="submit" class="btn btn-primary"> Agregar </button>
-    </form>
-</div>
+        function addClickListener2(e){
+            e.addEventListener("click", function(){
+                fetch('/task/' + e.dataset.id, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        status: 'done'
+                    })
+                })
+                .then(res => {
+                    location.reload()
+                    console.log("ok")
+                })
+                .catch(err => console.log(err));
+            })
+        }
 
+        var deletebuttons = document.getElementsByClassName("deletebutton");
+        for (let i = 0; i < deletebuttons.length; i++) {
+            addClickListener(deletebuttons[i]);
+        }
+
+        var updatebuttons = document.getElementsByClassName("updatebutton");
+        for (let i = 0; i < updatebuttons.length; i++) {
+            addClickListener2(updatebuttons[i]);
+        } 
+
+        function itemTextChanged(id, e){
+            title = e.value
+            fetch('/task/' + id, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        title: title
+                    })
+                })
+                .then(res => {
+                    location.reload()
+                    console.log("ok")
+                })
+                .catch(err => console.log(err));
+        }
+    </script>
 {% endblock %}

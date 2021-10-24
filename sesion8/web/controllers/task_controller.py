@@ -1,7 +1,7 @@
 from web.models.task import Task
 from flask import redirect
-
-class TaskController():
+import json
+class TaskController:
 
     tasks = []
 
@@ -12,18 +12,39 @@ class TaskController():
         pass
 
     def create(req):
-        print("Creating Task")
+        # Recibimos los datos
         form_data = req.form
         task_name = form_data['taskname']
-        
+
+        # Asignamos un id correlativo
         id = len(TaskController.tasks)
         new_task = Task(id, task_name)
 
+        # Agregamos la tarea
         TaskController.tasks.append(new_task)
         return redirect('/')
 
     def update(id, req):
-        pass
+        body = json.loads(req.data.decode())
+
+        index = 0
+        for idx, task in enumerate(TaskController.tasks):
+            if int(task.id ) == int(id):
+                index = idx
+  
+        if "title" in body:
+            title = body['title']
+            TaskController.tasks[index].title = title
+
+        if "status" in body:
+            status = body['status']
+            TaskController.tasks[index].status = status
+
+        return "OK"
 
     def delete(id):
-        pass
+        for task in TaskController.tasks:
+            if int(task.id ) == int(id):
+                print(f"Elimino: {task}")
+                TaskController.tasks.remove(task)
+        return redirect('/')
