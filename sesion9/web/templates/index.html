@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<div class="container">
+  <h1 class="bd-title">Productos</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>p.idproducto</th>
+        <th>p.nombre</th>
+        <th>p.fecha</th>
+        <th>p.descripcion</th>
+        <th>p.precio</th>
+        <th>c.nombre</th>
+        <th>m.nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for producto in productos %}
+      <tr>
+        <td>{{producto[0]}}</td>
+        <td>{{producto[1]}}</td>
+        <td>{{producto[2]}}</td>
+        <td>{{producto[3]}}</td>
+        <td>{{producto[4]}}</td>
+        <td>{{producto[5]}}</td>
+        <td>{{producto[6]}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
