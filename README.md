@@ -107,8 +107,7 @@
 	LEFT JOIN marca AS m
     ON p.idmarca = m.idmarca
 
-| ID | Nombre | Fecha | Descripcion | Precio |  Categoria |  Marca |
-| --- | ------ | ------ | ------ | ------ | ------ | ------ |
-| 1 | Nombre 1 | Fecha 1 | Descripcion 1 | Precio 1 | Categoria 1 | Marca 1 | 
-| 2 | Nombre 2  | Fecha 2 | Descripcion 2 | Precio 2 | Categoria 2 | Marca 2 |
-| 3 | Nombre 3  | Fecha 3 | Descripcion 3 | Precio 3 | Categoria 3 | Marca 3 |  
+### 🖥️ Session 10
+- flask
+- sqlalchemy
+- flask-sqlalchemy
