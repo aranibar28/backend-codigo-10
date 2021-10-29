@@ -53,7 +53,18 @@ Instalar los paquetes requeridos
 - Flask MySQL
 ----------------------------
 ### 🖥️ Session 10
-- Flask SQLAlchemy
+- ORM y SQL Alchemy 
+- Workshop 1
 ----------------------------
 ### 🖥️ Session 11
-- Despliegues con Heroku
+- Introducción Heroku
+----------------------------
+### 🖥️ Session 12
+- Relaciones entre clases
+- Vistas y Funciones
+- Store Procedures
+----------------------------
+### 🖥️ Session 13
+- Triggers
+- Usuarios y Permisos
+- Rest
