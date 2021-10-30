@@ -68,3 +68,11 @@ Instalar los paquetes requeridos
 - Triggers
 - Usuarios y Permisos
 - Rest
+----------------------------
+### 🖥️ Session 14
+- Introducción Django
+- Hello World con Django
+- SQLite
+
+    django-admin startproject myproject
+    python manage.py startapp hello_world
