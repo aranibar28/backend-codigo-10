@@ -74,7 +74,29 @@ Instalar los paquetes requeridos
 - Hello World con Django
 - SQLite
 
->Instalar:
+> PASO 1 - Instalar Django:
+
+    pip install django
+
+> PASO 2 - Crear poyecto con django admin
 
     django-admin startproject myproject
+
+> PASO 3 - Crear la aplicación principal
+
     python manage.py startapp hello_world
+
+> PASO 4 - Iniciar el servidor
+
+    python manage.py runserver
+
+Realizar migraciones
+
+> Hacer migraciones
+
+    python manage.py makemigrations
+
+> Migrar
+
+    python manage.py migrate
+    
