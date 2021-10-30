@@ -74,5 +74,7 @@ Instalar los paquetes requeridos
 - Hello World con Django
 - SQLite
 
+>Instalar:
+
     django-admin startproject myproject
     python manage.py startapp hello_world
