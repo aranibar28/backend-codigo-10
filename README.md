@@ -1,16 +1,25 @@
-# Backend - CodiGo 2021
+# Backend CodiGo - 2021
 
-Crear un entorno virtual para cada sesión
+![](https://img.shields.io/badge/Python-3.10.0-blue) ![](https://img.shields.io/badge/Flask-2.0.1-red) ![](https://img.shields.io/badge/Django-3.2.8-green)
+
+> This repository is part of a Bootcamp corresponding to the Backend module with Python.
+
+### Create and activate virtual enviroment (Git Bash)
 
     python -m venv env
+    . env/Scripts/activate
 
-Activar el entorno virtual en `env`
-
-    . Scripts/activate
-
-Instalar los paquetes requeridos
+### Install app dependencies
 
     pip install -r requirements.txt
+
+### Start Server with Flask
+    
+    flask run
+ 
+### Start Server with Django
+    
+    python manage.py runserver
 
 ----------------------------
 ### 🖥️ Session 1
@@ -85,10 +94,6 @@ Instalar los paquetes requeridos
 > PASO 3 - Crear la aplicación principal
 
     python manage.py startapp hello_world
-
-> PASO 4 - Iniciar el servidor
-
-    python manage.py runserver
 
 Realizar migraciones
 
