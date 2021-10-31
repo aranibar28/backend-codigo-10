@@ -8,3 +8,23 @@ def movies(request):
         'movies': movies,
     }
     return render(request, 'movies.html', context)
+
+def hello_world(request):
+    name = request.GET.get('name')
+    context = {
+        'name': name
+    }
+    return render(request, "hello.html", context)
+
+def hello_name(request, name):
+    context = {
+        'name': name
+    }
+    return render(request, "hello.html", context)
+
+# Lo mismo pero mas simplificado
+def hola(request, name=None):
+    if name == None:
+        name = request.GET.get('name')
+
+    return render(request, "hello.html", { 'name': name })

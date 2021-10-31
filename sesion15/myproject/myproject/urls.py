@@ -17,7 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from hello_world.views import movies
 
+from hello_world.views import movies, hello_world, hello_name, hola
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('movies/', movies )
+    path('movies/', movies),
+    # ?name=Gerson
+    path('hello/', hello_world),
+    path('hello/<name>', hello_name),
+    path('hola/', hola),
+    path('hola/<name>', hola)
 ]
