@@ -1,6 +1,7 @@
 # Backend CodiGo - 2021
 
-![](https://img.shields.io/badge/Python-3.10.0-blue) ![](https://img.shields.io/badge/Flask-2.0.1-red) ![](https://img.shields.io/badge/Django-3.2.8-green)
+![](https://img.shields.io/badge/Python-3.10.0-blue) ![](https://img.shields.io/badge/Flask-2.0.1-red) ![](https://img.shields.io/badge/Django-3.2.8-green) 
+![](https://img.shields.io/badge/MySQL-5.5.0-yellow) ![](https://img.shields.io/badge/SQLite-3.36.0-lightblue) 
 
 > This repository is part of a Bootcamp corresponding to the Backend module with Python.
 
