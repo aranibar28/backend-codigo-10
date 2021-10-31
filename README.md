@@ -5,7 +5,7 @@
 
 > This repository is part of a Bootcamp corresponding to the Backend module with Python.
 
-### Create and activate virtual enviroment (Git Bash)
+### Create and activate virtual enviroment
 
     python -m venv env
     . env/Scripts/activate
