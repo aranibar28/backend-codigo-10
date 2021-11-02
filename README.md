@@ -73,30 +73,10 @@ Instalar los paquetes requeridos
 - Introducción Django
 - Hello World con Django
 - SQLite
-
-> PASO 1 - Instalar Django:
-
-    pip install django
-
-> PASO 2 - Crear poyecto con django admin
-
-    django-admin startproject myproject
-
-> PASO 3 - Crear la aplicación principal
-
-    python manage.py startapp hello_world
-
-> PASO 4 - Iniciar el servidor
-
-    python manage.py runserver
-
-Realizar migraciones
-
-> Hacer migraciones
-
-    python manage.py makemigrations
-
-> Migrar
-
-    python manage.py migrate
-    
+----------------------------
+### 🖥️ Session 15
+- Django Settings
+- Vistas basadas en function
+- Vistas basadas en clase
+- ORM Django
+- Archivos URLs
