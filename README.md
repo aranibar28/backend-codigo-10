@@ -82,14 +82,19 @@
 - Usuarios y Permisos
 - Rest
 ----------------------------
-### 🖥️ Session 14
+### 🖥️ Session 15
 - Introducción Django
 - Hello World con Django
 - SQLite
 ----------------------------
-### 🖥️ Session 15
+### 🖥️ Session 16
 - Django Settings
 - Vistas basadas en function
 - Vistas basadas en clase
 - ORM Django
 - Archivos URLs
+
+### 🖥️ Session 17
+- Django Form
+- Django Admin
+- Introducción a Rest API
