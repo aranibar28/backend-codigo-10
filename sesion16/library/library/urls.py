@@ -21,10 +21,10 @@ from core.views import function_book, BookDetail, BookDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello', hello_world),
-    path('fx_book', function_books),
-    path('books', BooksView.as_view()),
-    path('books2', BookListView.as_view()),
+    path('hello/', hello_world),
+    path('fx_book/', function_books),
+    path('books/', BooksView.as_view()),
+    path('books2/', BookListView.as_view()),
 
     path('book/<id>/', function_book),
     path('book2/<id>/', BookDetail.as_view()),
