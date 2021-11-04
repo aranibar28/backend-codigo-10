@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from core.models import Task
 from core.forms import TaskModelForm
+from django.views.generic import CreateView
 
 # Create your views here.
 class TasksView(View):
@@ -37,3 +38,10 @@ class TaskView(View):
         task.due_date = data['due_date']
         task.save()
         return redirect('/tasks/')
+
+class TaskCreateView(CreateView):
+    model = Task
+    fields = '__all__'
+
+    def get_success_url(self):
+        return '/tasks/'
