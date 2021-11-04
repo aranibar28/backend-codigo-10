@@ -13,10 +13,14 @@
         <input name="title" type="text" />
         <button type="submit">Agregar</button>
     </form>
-    <ul>
+    <table>
       {% for task in tasks %}
-      <li>{{task.title}}</li>
+      <tr>
+        <td>{{task.title}}</td>
+        <td><a href="/task/{{task.id}}">Editar</a></td>
+      </tr>
+      
       {% endfor %}
-    </ul>
+    </table>
   </body>
 </html>
