@@ -98,3 +98,7 @@
 - Django Form
 - Django Admin
 - Introducción a Rest API
+
+### 🖥️ Session 18
+- Django REST Framework
+- Heroku
