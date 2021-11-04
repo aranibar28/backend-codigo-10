@@ -5,22 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todolist</title>
+    {% load bootstrap5 %} 
+    {% bootstrap_css %} 
+    {% bootstrap_javascript %}
   </head>
   <body>
-    <h1>Tareas</h1>
-    <form action="/tasks/" method="POST">
-        {% csrf_token %}
-        <input name="title" type="text" />
-        <button type="submit">Agregar</button>
-    </form>
-    <table>
-      {% for task in tasks %}
-      <tr>
-        <td>{{task.title}}</td>
-        <td><a href="/task/{{task.id}}">Editar</a></td>
-      </tr>
-      
-      {% endfor %}
-    </table>
+    <div class="container">
+    {% block content %} 
+    {% endblock %}
+    </div>
   </body>
 </html>

@@ -11,7 +11,7 @@ class TasksView(View):
         context = {
             "tasks": tasks,
         }
-        return render(request, "index.html", context)
+        return render(request, "task.html", context)
 
     def post(self, request):
         data = request.POST
