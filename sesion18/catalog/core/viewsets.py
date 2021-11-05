@@ -54,3 +54,11 @@ class ProductViewSet(viewsets.ViewSet):
 class CategoryModelViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+class ProductsByCategoryViewSet(viewsets.ViewSet):
+    """Viewset para consultar Productos por Categoría"""
+    def retrieve(self, request, pk):
+        """Obtener Productos"""
+        products = Product.objects.filter(category_id=pk)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from core.viewsets import ProductViewSet, CategoryModelViewSet
+from core.viewsets import ProductViewSet, CategoryModelViewSet, ProductsByCategoryViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,8 @@ urlpatterns = [
         'put': 'update',
         'delete': 'destroy',
     })),
+
+    path('category/<pk>/products', ProductsByCategoryViewSet.as_view({
+        'get': 'retrieve',
+    }))
 ]
