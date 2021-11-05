@@ -1,12 +1,13 @@
-Instalar Django
+Instalar Dependencias
 
-    pip install django
+    pip install -r requirements.txt
 
 Crear Proyecto
 
-    django-admin startproject myproject
+    django-admin startproject catalog
     python manage.py startapp core
 
+Crear Modelo de Datos en `models.py`
 
 Realizar migraciones de Base Datos
 
