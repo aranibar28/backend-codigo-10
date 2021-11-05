@@ -7,6 +7,8 @@ class ProductSerializer(serializers.Serializer):
     price = serializers.FloatField()
     sku = serializers.CharField(max_length=11)
     exp_date = serializers.DateField()
+    category_name = serializers.ReadOnlyField()
+    category_id = serializers.IntegerField()
 
     def create(self, validate_data):
         product = Product(**validate_data)
@@ -19,6 +21,7 @@ class ProductSerializer(serializers.Serializer):
         return product
 
 class CategorySerializer(serializers.ModelSerializer):
+    products = ProductSerializer(many=True)
     class Meta:
         model = Category
-        fields = ['id', 'name', 'description']
+        fields = ['id', 'name', 'description', 'products']
