@@ -12,3 +12,8 @@ class ProductSerializer(serializers.Serializer):
         product = Product(**validate_data)
         product.save()
         return product
+    
+    def update(self, product, data):
+        product = Product.objects.filter(pk=product.id)
+        product.update(**data)
+        return product

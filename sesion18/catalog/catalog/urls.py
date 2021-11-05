@@ -10,5 +10,7 @@ urlpatterns = [
     })),
     path('catalog/<pk>', ProductViewSet.as_view({
         'get': 'retrieve',
+        'put': 'update',
+        'delete': 'destroy',
     }))
 ]
