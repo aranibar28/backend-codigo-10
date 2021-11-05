@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Product
+from core.models import Product, Category
 
 class ProductSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -17,3 +17,8 @@ class ProductSerializer(serializers.Serializer):
         product = Product.objects.filter(pk=product.id)
         product.update(**data)
         return product
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['id', 'name', 'description']

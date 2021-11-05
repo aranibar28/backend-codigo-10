@@ -6,4 +6,8 @@ class Product(models.Model):
     price = models.FloatField()
     sku = models.CharField(max_length=11)
     exp_date = models.DateField()
-    
+
+# Create your models here. (GENERIC)  
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()

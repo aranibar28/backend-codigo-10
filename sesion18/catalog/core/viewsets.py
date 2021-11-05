@@ -1,9 +1,8 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.serializers import Serializer
-from core.serializers import ProductSerializer
-from core.models import Product
-from django.shortcuts import get_object_or_404
+from core.serializers import ProductSerializer, CategorySerializer
+from core.models import Product, Category
 
 class ProductViewSet(viewsets.ViewSet):
     def list(self, request):
@@ -50,4 +49,8 @@ class ProductViewSet(viewsets.ViewSet):
         product.delete()
         return Response({
             'status': 'ok',
-        })        
+        })
+
+class CategoryModelViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
