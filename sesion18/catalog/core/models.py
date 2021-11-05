@@ -12,4 +12,4 @@ class Product(models.Model):
     price = models.FloatField()
     sku = models.CharField(max_length=11)
     exp_date = models.DateField()
-    category = models.ForeignKey(Category, on_delete=CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
