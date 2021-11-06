@@ -101,4 +101,8 @@
 
 ### 🖥️ Session 18
 - Django REST Framework
-- Heroku
+- ViewSets
+
+### 🖥️ Session 19
+- Django Auth
+- Tokens
