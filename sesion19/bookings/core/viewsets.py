@@ -12,6 +12,19 @@ class BookingViewSet(viewsets.ViewSet):
         serializer = BookingsSerializer(bookings, many=True)
         return Response(serializer.data)
 
+    # Por corregir
+    def create(self, request):
+        data = request.databases
+        if not request.user.is_anonymous():
+            data['user_id'] = request.user.id
+
+        serializer = BookingsSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data) 
+        else:
+            return Response(serializer.errors) 
+
 class UserViewSet(viewsets.ViewSet):
     def login(self, request):
         data = request.data

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
+from core.models import Booking
 from django.contrib.auth import password_validation, authenticate
 
 class BookingsSerializer(serializers.Serializer):
@@ -8,6 +9,13 @@ class BookingsSerializer(serializers.Serializer):
     fec_reserva = serializers.DateTimeField()
     estado = serializers.CharField()
     nro_personas = serializers.IntegerField()
+    user_id = serializers.IntegerField()
+
+    # Corregir
+    def create(self, data):
+        booking = Booking(**data)
+        booking.save()
+        return booking
 
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.CharField()

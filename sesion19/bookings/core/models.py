@@ -8,4 +8,4 @@ class Booking(models.Model):
     fec_reserva = models.DateTimeField(null=True)
     estado = models.CharField(max_length=100, null=True)
     nro_personas = models.IntegerField(null=True)
-    user = models.ForeignKey(User, on_delete=CASCADE, related_name='bookigns', null=True)
+    user = models.ForeignKey(User, on_delete=CASCADE, related_name='bookings', null=True)

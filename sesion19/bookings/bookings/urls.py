@@ -6,8 +6,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookings/', BookingViewSet.as_view({
         'get': 'list',
+        'post': 'create',
     })),
     path('login/', UserViewSet.as_view({
         'post': 'login',
-    }))
+    })),
 ]
