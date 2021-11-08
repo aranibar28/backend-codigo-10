@@ -93,16 +93,25 @@
 - Vistas basadas en clase
 - ORM Django
 - Archivos URLs
-
+----------------------------
 ### 🖥️ Session 17
 - Django Form
 - Django Admin
 - Introducción a Rest API
-
+----------------------------
 ### 🖥️ Session 18
 - Django REST Framework
 - ViewSets
-
+----------------------------
 ### 🖥️ Session 19
 - Django Auth
 - Tokens
+----------------------------
+### 🖥️ Session 20
+- Workshop 2
+----------------------------
+### 🖥️ Session 21
+- Introduccion a Servicios
+- Django Rest Framework
+- Serializacion
+- Consumo de APIs con Fetch
