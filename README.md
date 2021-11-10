@@ -115,3 +115,6 @@
 - Django Rest Framework
 - Serializacion
 - Consumo de APIs con Fetch
+----------------------------
+### 🖥️ Session 22
+- Django Rest Framework

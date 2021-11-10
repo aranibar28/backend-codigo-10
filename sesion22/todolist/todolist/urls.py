@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.viewsets import TasksViewSet, UserViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', UserViewSet.as_view({
+        'get': 'login',
+    })),
+    path('tasks/', TasksViewSet.as_view({
+        'get': 'list',
+    }))
 ]
