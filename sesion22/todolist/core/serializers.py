@@ -10,7 +10,7 @@ class UserLoginSerializer(serializers.Serializer):
     def validate(self, attrs):
         user = authenticate(username=attrs['username'], password=attrs['password'])
         if not user:
-            raise serializers.ValidationError('Invalid Credentials')
+            raise serializers.ValidationError('Credenciales inválidas !!')
         self.context['user'] = user
         return attrs
 
@@ -19,5 +19,12 @@ class UserLoginSerializer(serializers.Serializer):
         return self.context['user'], token.key
 
 class TaskSerializer(serializers.Serializer):
+    id = serializers.ReadOnlyField()
     title = serializers.CharField()
     user_id = serializers.IntegerField()
+    status = serializers.ReadOnlyField()
+
+    def create(self, data):
+        task = Task(**data)
+        task.save()
+        return task

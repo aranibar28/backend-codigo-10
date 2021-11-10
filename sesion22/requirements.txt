@@ -2,3 +2,4 @@ django
 djangorestframework
 pymysql
 cryptography
+django-cors-headers
