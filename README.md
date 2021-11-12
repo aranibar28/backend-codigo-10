@@ -118,3 +118,6 @@
 ----------------------------
 ### 🖥️ Session 22
 - Django Rest Framework
+----------------------------
+### 🖥️ Session 23
+- Integracion Django Rest Framework y React

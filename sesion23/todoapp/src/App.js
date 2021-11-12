@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect } from "react";
 import NewItemModal from "./components/modals";
 import axios from "axios";
 
@@ -27,16 +27,18 @@ function App() {
 
   function checkHandler(value, id) {
     let final_url = "http://localhost:8000/task/" + id;
-    axios.put(
-      final_url,
-      { "status": value },
-      {
-        headers: {
-          Authorization: "Token 2a23a070d98969c9c926c25d8209cb5360d8ee36",
-        },
-      }
-    ).then((res) => refresh())
-    .catch((err) => console.log(err));
+    axios
+      .put(
+        final_url,
+        { status: value },
+        {
+          headers: {
+            Authorization: "Token 2a23a070d98969c9c926c25d8209cb5360d8ee36",
+          },
+        }
+      )
+      .then((res) => refresh())
+      .catch((err) => console.log(err));
   }
 
   function addTask() {
@@ -44,7 +46,7 @@ function App() {
       .post(
         "http://localhost:8000/tasks/",
         {
-          "title": newTask,
+          title: newTask,
         },
         {
           headers: {
@@ -52,6 +54,18 @@ function App() {
           },
         }
       )
+      .then((res) => refresh())
+      .catch((err) => console.log(err));
+  }
+
+  function deleteTask(id) {
+    let final_url = "http://localhost:8000/task/" + id;
+    axios
+      .delete(final_url, {
+        headers: {
+          Authorization: "Token 2a23a070d98969c9c926c25d8209cb5360d8ee36",
+        },
+      })
       .then((res) => refresh())
       .catch((err) => console.log(err));
   }
@@ -67,12 +81,16 @@ function App() {
       .catch((err) => console.error(err));
   }
 
+  useEffect(() => {
+    refresh();
+  }, []);
+
   return (
     <div className="App">
       <div className="container">
         <h1>ToDo App</h1>
         <div className="row mb-3">
-          <div className="col-md-6">
+          <div className="col-md-9">
             <input
               className="form-control"
               value={newTask}
@@ -81,38 +99,49 @@ function App() {
             <span>{newTask}</span>
           </div>
           <div className="col-md-3">
-            <button className="btn btn-primary" onClick={addTask}>
+            <button className="btn btn-success" onClick={addTask}>
               Agregar Tarea
             </button>
-          </div>
-          <div className="col-md-3">
-            <button className="btn btn-info" onClick={refresh}>
-              Actualizar
-            </button>
+             
           </div>
         </div>
         <div className="row">
           <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Estado</th>
+                <th>#</th>
+                <th>Tarea</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
             {todoItems.map((item) => {
               return (
-                <tr>
-                  <td>
-                    <input
-                      type="checkbox"
-                      className="form-control"
-                      onChange={(e) => {
-                        checkHandler(e.target.checked, item["id"]);
-                      }}
-                      checked={item["status"]}
-                    />
-                  </td>
-                  <td>{item["id"]}</td>
-                  <td>{item["title"]}</td>
-                  <td>
-                    <button className="btn btn-sm btn-success">Editar</button> 
-                    <button className="btn btn-sm btn-danger">Eliminar</button>
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        className="form-control"
+                        onChange={(e) => {
+                          checkHandler(e.target.checked, item["id"]);
+                        }}
+                        checked={item["status"]}
+                      />
+                    </td>
+                    <td>{item["id"]}</td>
+                    <td>{item["title"]}</td>
+                    <td>
+                      <button className="btn btn-sm btn-info">Editar</button> 
+                      <button
+                        className="btn btn-sm btn-danger"
+                        onClick={(e) => deleteTask(item["id"])}
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               );
             })}
           </table>
