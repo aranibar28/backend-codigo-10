@@ -1,6 +1,7 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
+from rest_framework import status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
@@ -44,6 +45,12 @@ class AuthViewSet(ViewSet):
         password = data['password']
 
         user = User.objects.filter(email__exact=email).first()
+
+        if user == None:
+            return Response({
+                "status": "Ups, Credenciales inválidas, intente nuevamente",
+            }, status=status.HTTP_400_BAD_REQUEST)
+
         user_authenticated = authenticate(username=user.username, password=password)
 
         if user_authenticated != None:
