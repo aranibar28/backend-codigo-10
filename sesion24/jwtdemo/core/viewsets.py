@@ -7,6 +7,16 @@ from django.contrib.auth.hashers import make_password
 from core.serializers import UserSerializer, SignUpSerializer
 
 class UserViewSet(ViewSet):
+    def list(self, request):
+        print(request.user)
+
+        if request.user.is_anonymous:
+            return Response({"status": "error"})
+
+        users = User.objects.filter(pk=request.user.id)
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+
     def sing_up(self, request):
         data = request.data
         serializer = SignUpSerializer(data=data)

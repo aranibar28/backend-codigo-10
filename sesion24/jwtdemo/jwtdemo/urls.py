@@ -12,5 +12,8 @@ urlpatterns = [
     })),
     path('api/signup/', UserViewSet.as_view({
         'post': 'sing_up',
-    }))
+    })),
+    path('api/users/', UserViewSet.as_view({
+        'get': 'list',
+    })),
 ]
