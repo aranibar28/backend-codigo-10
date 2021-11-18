@@ -33,9 +33,10 @@ export default function LoginForm() {
           <h1>Login</h1>
         </div>
         {errors !== "" ? (
-        <div className="alert alert-danger" role="alert">
-          {errors}
-        </div>) : null}
+          <div className="alert alert-danger" role="alert">
+            {errors}
+          </div>
+        ) : null}
 
         <div className="row mb-4">
           <div className="form-group">
