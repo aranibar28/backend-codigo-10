@@ -2,20 +2,42 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from rest_framework import status
-from django.contrib.auth.models import User
+from core.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
 from core.serializers import UserSerializer, SignUpSerializer
 
 class UserViewSet(ViewSet):
-    def list(self, request):
-        print(request.user)
+
+    def retrieve(self, request, pk):
 
         if request.user.is_anonymous:
-            return Response({"status": "error"})
+            return Response(status=status.HTTP_403_FORBIDDEN)
+        
+        user = User.objects.filter(pk=pk).first()
 
-        users = User.objects.filter(pk=request.user.id)
-        serializer = UserSerializer(users, many=True)
+        if user == None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        if request.user.pk == user.pk:
+            serializer = UserSerializer(user)
+            return Response(serializer.data)
+        else:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+    def list(self, request):
+        print(request.user)
+        
+        if request.user.is_anonymous:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        user = User.objects.filter(pk=request.user.id).first()
+
+        user = User.objects.filter(pk=request.user.id).first()
+        if user == None:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = UserSerializer(user)
         return Response(serializer.data)
 
     def sing_up(self, request):
