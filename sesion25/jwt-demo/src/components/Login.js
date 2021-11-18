@@ -17,7 +17,13 @@ export default function LoginForm() {
         console.log("ok");
         console.log(response.data.token);
         localStorage.setItem("token", response.data.token);
-        window.location.reload(true);
+
+        // if response.data.role = "admin" {
+        //   history.push("/admin");
+        // } else {
+        //   history.push("/home");
+        // }
+        
       })
       .catch((error) => {
         console.log("ERROR");
